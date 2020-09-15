@@ -43,7 +43,7 @@ public class CatFact implements Comparable<CatFact>{
     }
 
     @Override
-    public int compareTo(CatFact o) {
-        return 0;
+    public int compareTo(CatFact catFact) {
+        return getCreatedAt().compareTo(catFact.createdAt);
     }
 }

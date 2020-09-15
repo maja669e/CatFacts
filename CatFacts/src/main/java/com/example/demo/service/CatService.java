@@ -43,10 +43,12 @@ public class CatService {
             BufferedReader inputFromCatURL = new BufferedReader(new InputStreamReader(catURL.openStream()));
             CatFact data = new Gson().fromJson(inputFromCatURL, CatFact.class);
             catFacts.add(data);
-            //Collections.sort(catFacts.get(i).);
+            Collections.sort(catFacts);
             System.out.println(data);
         }
         return catFacts;
     }
+
+
 
 }
