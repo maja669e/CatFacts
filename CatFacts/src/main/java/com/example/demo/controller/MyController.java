@@ -35,4 +35,11 @@ public class MyController {
         return catService.SortArrayList().toString();
     }
 
+    @GetMapping("/DoesItContain")
+    @ResponseBody
+    public String doesItContain() throws IOException {
+        CatService catService = new CatService();
+        return catService.doesItContain('p',4).toString();
+    }
+
 }

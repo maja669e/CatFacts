@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.$Gson$Preconditions;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,7 +12,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CatService {
-    CatFact catFact = new CatFact();
+    ArrayList<CatFact> catFacts = new ArrayList<>();
+
     public String getSingleFact() throws IOException {
         //Choose what API to consume
         URL catURL = new URL("https://cat-fact.herokuapp.com/facts/random");
@@ -25,8 +28,7 @@ public class CatService {
     }
 
     public ArrayList<CatFact> arrayListOfCatFacts() throws IOException {
-        ArrayList<CatFact> catFacts = new ArrayList<>();
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             URL catURL = new URL("https://cat-fact.herokuapp.com/facts/random");
             BufferedReader inputFromCatURL = new BufferedReader(new InputStreamReader(catURL.openStream()));
             CatFact data = new Gson().fromJson(inputFromCatURL, CatFact.class);
@@ -37,8 +39,7 @@ public class CatService {
     }
 
     public ArrayList<CatFact> SortArrayList() throws IOException {
-        ArrayList<CatFact> catFacts = new ArrayList<>();
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 10; i++) {
             URL catURL = new URL("https://cat-fact.herokuapp.com/facts/random");
             BufferedReader inputFromCatURL = new BufferedReader(new InputStreamReader(catURL.openStream()));
             CatFact data = new Gson().fromJson(inputFromCatURL, CatFact.class);
@@ -49,6 +50,13 @@ public class CatService {
         return catFacts;
     }
 
-
-
+    public ArrayList<CatFact> doesItContain(char c, int n) {
+        if (catFacts.contains(c)) {
+            for (n = 0; n < catFacts.size(); n++) {
+                System.out.println( c);
+            }
+        } else {
+            System.out.println("Sorry no luck");
+        } return catFacts;
+    }
 }
