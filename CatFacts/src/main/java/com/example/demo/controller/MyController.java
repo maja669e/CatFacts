@@ -39,7 +39,8 @@ public class MyController {
     @ResponseBody
     public String doesItContain(char c, int n) throws IOException {
         CatService catService = new CatService();
-        return catService.doesItContain(c,n).toString();
+        //return catService.doesItContain(c,n).toString();
+        return "";
     }
 
 }
