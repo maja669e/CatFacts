@@ -25,7 +25,14 @@ public class MyController {
     @ResponseBody
     public String catTenFacts() throws IOException {
         CatService catService = new CatService();
-        return catService.getSingleFact();
+        return catService.arrayListOfCatFacts().toString();
+    }
+
+    @GetMapping("/getTenSortByDate")
+    @ResponseBody
+    public String sortTenDate() throws IOException {
+        CatService catService = new CatService();
+        return catService.SortArrayList().toString();
     }
 
 }
