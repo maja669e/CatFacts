@@ -9,36 +9,36 @@ import java.io.IOException;
 
 @Controller
 public class MyController {
+    CatService catService = new CatService();
+
 
     @GetMapping("/hello")
     @ResponseBody
     public String hello(){
         return "Hello. Welcome to our cat fact site.";
     }
+
     @GetMapping("/getSingleFact")
     @ResponseBody
     public String catSingleFact() throws IOException {
-        CatService catService = new CatService();
         return catService.getSingleFact();
     }
+
     @GetMapping("/getTenFacts")
     @ResponseBody
     public String catTenFacts() throws IOException {
-        CatService catService = new CatService();
         return catService.arrayListOfCatFacts().toString();
     }
 
     @GetMapping("/getTenSortByDate")
     @ResponseBody
     public String sortTenDate() throws IOException {
-        CatService catService = new CatService();
         return catService.SortArrayList().toString();
     }
 
     @GetMapping("/DoesItContain")
     @ResponseBody
     public String doesItContain(char c, int n, String facts) {
-        CatService catService = new CatService();
        return catService.doesItContain(c,n,facts);
     }
 
