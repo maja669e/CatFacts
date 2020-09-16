@@ -51,7 +51,7 @@ public class CatService {
     }
 
 
-    public String doesItContain(char c, int n, String facts) throws IOException {
+    public String doesItContain(char c, int n, String facts) {
         int count = 0;
 
         if (Character.isLowerCase(c)) {
