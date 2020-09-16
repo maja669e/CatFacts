@@ -49,22 +49,32 @@ public class CatService {
         }
         return catFacts;
     }
-    /*
-    Metode fungerer ikke
-    public ArrayList<CatFact> doesItContain(char c, int n) throws IOException {
-        if (!catFacts. )
-        for (int i = 0; i < n; i++) {
-            if (catFacts.contains(c)) {
-                URL catURL = new URL("https://cat-fact.herokuapp.com/facts/random");
-                BufferedReader inputFromCatURL = new BufferedReader(new InputStreamReader(catURL.openStream()));
-                CatFact data = new Gson().fromJson(inputFromCatURL, CatFact.class);
-                catFacts.add(data);
-                System.out.println(data);
+
+
+    public String doesItContain(char c, int n, String facts) throws IOException {
+        int count = 0;
+
+        if (Character.isLowerCase(c)) {
+            for (int i = 0; i < facts.length(); i++) {
+                if (facts.toLowerCase().charAt(i) == c) {
+                    count++;
+                }
             }
-            return catFacts;
+
+        }
+        if (Character.isUpperCase(c)) {
+            for (int i = 0; i < facts.length(); i++) {
+                if (facts.toUpperCase().charAt(i) == c) {
+                    count++;
+                }
+            }
+
+        }
+        if (count == n) {
+            return "Good luck next time";
+        } else {
+            return c + " is " + count + " times";
         }
 
     }
-
-     */
 }
