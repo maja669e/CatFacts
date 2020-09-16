@@ -37,7 +37,7 @@ public class MyController {
 
     @GetMapping("/DoesItContain")
     @ResponseBody
-    public String doesItContain(char c, int n, String facts) throws IOException {
+    public String doesItContain(char c, int n, String facts) {
         CatService catService = new CatService();
        return catService.doesItContain(c,n,facts);
     }
